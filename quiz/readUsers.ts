@@ -12,16 +12,18 @@ router.get("/usernames", (req: UserRequest, res: Response) => {
 
 router.get("/username/:name", (req: UserRequest, res: Response) => {
   let name = req.params.name;
-  let users_with_name = req.users?.filter(function (user) {
+  let users = req.users?.filter(function (user) {
     return user.username === name;
   });
-  console.log(users_with_name);
-  if (users_with_name?.length === 0) {
+
+  console.log(users);
+
+  if (users?.length === 0) {
     res.send({
       error: { message: `${name} not found`, status: 404 },
     });
   } else {
-    res.send(users_with_name);
+    res.send(users);
   }
 });
 

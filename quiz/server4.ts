@@ -35,9 +35,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/write", writeUsers);
 
 fs.readFile(path.resolve(__dirname, dataFile), (err, data) => {
-  console.log("reading file ... ");
+  console.log("reading file ...");
   if (err) throw err;
   users = JSON.parse(data.toString());
+  console.log("finished reading file");
 });
 
 app.listen(port, () => {

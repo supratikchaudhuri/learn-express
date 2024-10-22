@@ -75,8 +75,9 @@ app.get("/read/username/:name", (req: UserRequest, res: Response) => {
 });
 
 app.post("/write/adduser", (req: UserRequest, res: Response) => {
-  let newuser = req.body as User;
-  users.push(newuser);
+  let newUser = req.body as User;
+  users.push(newUser);
+
   fs.writeFile(
     path.resolve(__dirname, dataFile),
     JSON.stringify(users),
@@ -85,7 +86,8 @@ app.post("/write/adduser", (req: UserRequest, res: Response) => {
       else console.log("User Saved");
     }
   );
-  res.send("done");
+
+  res.send("Successfully added user");
 });
 
 app.listen(port, () => {
