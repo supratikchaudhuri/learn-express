@@ -20,4 +20,5 @@ router.post("/adduser", (req: UserRequest, res: Response) => {
   );
   res.send("Successly added user");
 });
+
 export default router;

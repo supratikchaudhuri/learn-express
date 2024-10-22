@@ -4,15 +4,15 @@ import { UserRequest } from "./types";
 const router = express.Router();
 
 router.get("/usernames", (req: UserRequest, res: Response) => {
-  let usernames = req.users?.map(function (user) {
+  const usernames = req.users?.map(function (user) {
     return { id: user.id, username: user.username };
   });
   res.send(usernames);
 });
 
 router.get("/username/:name", (req: UserRequest, res: Response) => {
-  let name = req.params.name;
-  let users = req.users?.filter(function (user) {
+  const name = req.params.name;
+  const users = req.users?.filter(function (user) {
     return user.username === name;
   });
 
